@@ -1,0 +1,23 @@
+<h1 class="text-3xl font-bold text-center p-3">Flow POC</h1>
+
+<nav class="m-3">
+  <ul class="flex justify-center space-x-6">
+    <li>
+      <a
+        [routerLink]="[ROUTES.JSPLUMB]"
+        class="text-blue-600 hover:text-blue-800 underline"
+        >JS Plumb</a
+      >
+    </li>
+    <li>
+      <a
+        [routerLink]="[ROUTES.RETEJS]"
+        class="text-blue-600 hover:text-blue-800 underline"
+        >Rete JS</a
+      >
+    </li>
+  </ul>
+</nav>
+<main class="mt-4">
+  <router-outlet></router-outlet>
+</main>

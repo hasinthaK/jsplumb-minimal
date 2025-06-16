@@ -1,0 +1,101 @@
+<div class="p-6">
+  <h2 class="text-2xl font-bold mb-4">JSPlumb Component</h2>
+  <p class="text-gray-600">
+    This is the JSPlumb proof of concept implementation.
+  </p>
+  <div class="mt-4 p-4 bg-gray-100 rounded">
+    <p>JS Plumb integration will be implemented here.</p>
+  </div>
+</div>
+
+<div
+  #nodeTreeContainer
+  class="node-tree-container max-w-2xl mx-auto border p-2"
+  (click)="onUnselectNode()"
+>
+  <div class="branches flex">
+    <div
+      class="m-1 p-3 bg-green-50 rounded size-max"
+      [class.active]="selectedNode === 1"
+      data-node-num="1"
+      #nodeEl
+      (click)="onNodeClick(1, $event)"
+    >
+      Lorem ipsum dolor sit amet.1
+    </div>
+    <div
+      class="m-6 p-6 bg-green-50 rounded size-max"
+      [class.active]="selectedNode === 2"
+      data-node-num="2"
+      #nodeEl
+      (click)="onNodeClick(2, $event)"
+    >
+      Lorem ipsum dolor sit amet.2
+    </div>
+    <div
+      class="m-6 p-6 bg-green-50 rounded size-max"
+      [class.active]="selectedNode === 6"
+      data-node-num="6"
+      #nodeEl
+      (click)="onNodeClick(6, $event)"
+    >
+      Lorem ipsum dolor sit amet.2 Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Id, deleniti.
+    </div>
+  </div>
+  <div
+    class="m-4 p-4 bg-green-50 rounded size-max"
+    [class.active]="selectedNode === 3"
+    data-node-num="3"
+    #nodeEl
+    (click)="onNodeClick(3, $event)"
+  >
+    Lorem ipsum dolor sit amet.3
+  </div>
+  <div
+    class="m-3 p-3 bg-green-50 rounded size-max"
+    [class.active]="selectedNode === 4"
+    data-node-num="4"
+    #nodeEl
+    (click)="onNodeClick(4, $event)"
+  >
+    Lorem ipsum dolor sit amet.4
+  </div>
+  <div
+    class="m-3 p-3 bg-green-50 rounded size-max"
+    [class.active]="selectedNode === 5"
+    data-node-num="5"
+    #nodeEl
+    (click)="onNodeClick(5, $event)"
+  >
+    Lorem ipsum dolor sit amet.4
+  </div>
+</div>
+
+<!-- configuration panel for currently selected node -->
+<!-- example impl with a single checkbox -->
+<!-- TODO: form should be constructed based on the nodeTreeConfig -->
+<div
+  *ngIf="selectedNode"
+  class="config-panel bg-gray-50 max-w-2xl mx-auto mt-5 p-3"
+>
+  <ng-container *ngIf="selectedNode === 1">
+    <ng-container
+      *ngTemplateOutlet="node1ConfigForm; context: { formGroup: formGroup }"
+    ></ng-container>
+  </ng-container>
+</div>
+
+<ng-template #node1ConfigForm let-formGroup="formGroup">
+  <form [formGroup]="formGroup">
+    <label for="pathSelector flex gap-2 align-center">
+      <input
+        type="checkbox"
+        name="choosePath2"
+        id="pathSelector"
+        formControlName="isPathSelected"
+      />
+      Select Path 2
+    </label>
+  </form>
+</ng-template>
