@@ -3,8 +3,7 @@
 ## Steps to run
 
 - Open terminal & run below
-- `cd flow-poc`
-- `npm start`
+- `npm i && npm start`
 
 ## JSPlumb Docs
 - https://community.jsplumbtoolkit.com/docs/6.x/
